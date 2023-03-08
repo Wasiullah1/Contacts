@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="138px" height="138px" viewBox="0 0 138 138" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>574243F0-D76D-4DC7-95C9-41F1C328D915</title>
+    <defs>
+        <path d="M22.6451613,0 L22.6451613,0 L22.6451613,0 L22.6451613,73.3548387 C22.6451613,85.8614159 12.5065772,96 0,96 L0,96 L0,96 L0,22.6451613 C-1.53161398e-15,10.1385841 10.1385841,2.29742097e-15 22.6451613,0 Z" id="path-1"></path>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.92783%" id="linearGradient-3">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.05" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo" transform="translate(42.000000, 21.000000)">
+            <g id="Group">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Rectangle-Copy-14" fill="#00D4A9" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <path d="M22.6451613,52.3636364 L22.6451613,52.3636364 L22.6451613,52.3636364 L22.6451613,73.3548387 C22.6451613,85.8614159 12.5065772,96 0,96 L0,96 L0,96 L0,75.0087977 C-1.53161398e-15,62.5022204 10.1385841,52.3636364 22.6451613,52.3636364 Z" id="Rectangle-Copy-18" fill="url(#linearGradient-3)" fill-rule="nonzero" mask="url(#mask-2)" transform="translate(11.322581, 74.181818) scale(-1, -1) translate(-11.322581, -74.181818) "></path>
+            </g>
+            <path d="M54,0 L54,0 L54,0 L54,20.9912023 C54,33.4977796 43.8614159,43.6363636 31.3548387,43.6363636 L31.3548387,43.6363636 L31.3548387,43.6363636 L31.3548387,22.6451613 C31.3548387,10.1385841 41.4934228,2.29742097e-15 54,0 Z" id="Rectangle-Copy-16" fill="#00D4A9" fill-rule="nonzero"></path>
+            <path d="M54,52.3636364 L54,52.3636364 L54,52.3636364 L54,73.3548387 C54,85.8614159 43.8614159,96 31.3548387,96 L31.3548387,96 L31.3548387,96 L31.3548387,75.0087977 C31.3548387,62.5022204 41.4934228,52.3636364 54,52.3636364 Z" id="Rectangle-Copy-17" fill="#00D4A9" fill-rule="nonzero" transform="translate(42.677419, 74.181818) scale(1, -1) translate(-42.677419, -74.181818) "></path>
+        </g>
+    </g>
+</svg>
