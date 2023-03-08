@@ -12,11 +12,11 @@ class Description1 extends StatelessWidget {
         children: [
           Image.asset(
             "assets/login-image-addressbook.png",
-            height: 150,
-            width: 150,
+            height: 140,
+            width: 140,
           ),
           SizedBox(
-            width: 20,
+            width: 10,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -70,12 +70,12 @@ class Description2 extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 20,
+            width: 10,
           ),
           Image.asset(
             "assets/login-image-editing.png",
-            height: 150,
-            width: 150,
+            height: 140,
+            width: 140,
           ),
         ],
       ),
@@ -94,11 +94,11 @@ class Description3 extends StatelessWidget {
         children: [
           Image.asset(
             "assets/login-image-addressbook.png",
-            height: 150,
-            width: 150,
+            height: 140,
+            width: 140,
           ),
           SizedBox(
-            width: 20,
+            width: 10,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -155,12 +155,12 @@ class Description4 extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 20,
+            width: 10,
           ),
           SvgPicture.asset(
             "assets/login-image-losephone.svg",
-            height: 150,
-            width: 150,
+            height: 140,
+            width: 140,
           ),
         ],
       ),

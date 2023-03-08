@@ -30,182 +30,230 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text("Signup"),
-      Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-          child: Container(
-            height: 440.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              color: Colors.white,
-            ),
-            width: double.infinity,
+        backgroundColor: Colors.lightBlue.shade100,
+        body: Stack(children: [
+          Positioned(
+              top: 50,
+              left: 10,
+              child: IconButton(
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen())),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
+                ),
+              )),
+          SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
-              child: Column(children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: SvgPicture.asset(
-                    'assets/logo-keep.svg',
-                    height: 50,
-                    width: 50,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          controller: namecontroller,
-                          keyboardType: TextInputType.text,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'required';
-                            } else
-                              return null;
-                          },
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            hintText: 'Username',
-                            labelText: 'Username',
-                            filled: true,
-                            contentPadding: const EdgeInsets.fromLTRB(
-                                20.0, 10.0, 20.0, 10.0),
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        TextFormField(
-                          controller: emailcontroller,
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'required';
-                            } else
-                              return null;
-                          },
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.email),
-                            hintText: 'Emai',
-                            labelText: 'Email',
-                            filled: true,
-                            contentPadding: const EdgeInsets.fromLTRB(
-                                20.0, 10.0, 20.0, 10.0),
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        TextFormField(
-                          controller: passwordcontroller,
-                          keyboardType: TextInputType.text,
-                          obscureText: true,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'required';
-                            } else
-                              return null;
-                          },
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.lock),
-                            hintText: 'Password',
-                            labelText: 'Password',
-                            filled: true,
-                            contentPadding: const EdgeInsets.fromLTRB(
-                                20.0, 10.0, 20.0, 10.0),
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        TextFormField(
-                          controller: contactcontroller,
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'required';
-                            } else
-                              return null;
-                          },
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.phone),
-                            hintText: 'Contact',
-                            labelText: 'Contact',
-                            filled: true,
-                            contentPadding: const EdgeInsets.fromLTRB(
-                                20.0, 10.0, 20.0, 10.0),
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
-                          child: InkWell(
-                              onTap: () async {
-                                await signUp(emailcontroller.text.toString(),
-                                    passwordcontroller.text.toString());
-                              },
-                              child: Container(
-                                  height: 40,
-                                  width: 250,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(),
-                                      color:
-                                          Color.fromARGB(255, 143, 239, 148)),
-                                  child: const Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 10, horizontal: 30),
-                                    child: Center(child: Text("Register")),
-                                  ))),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                            "By clicking the Register account button above you agree on our"),
-                        InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const TermsofService()));
-                            },
-                            child: Align(
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                "Terms of Service.",
-                                style: TextStyle(color: Colors.lightGreen),
-                              ),
-                            ))
-                      ],
+              padding: const EdgeInsets.symmetric(vertical: 30),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Signup",
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ),
-              ]),
+                    Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 20),
+                        child: Container(
+                          height: 440.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            color: Colors.white,
+                          ),
+                          width: double.infinity,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(top: 15.0, bottom: 15.0),
+                            child: Column(children: <Widget>[
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                child: SvgPicture.asset(
+                                  'assets/logo-keep.svg',
+                                  height: 50,
+                                  width: 50,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                child: Form(
+                                  key: _formKey,
+                                  child: Column(
+                                    children: [
+                                      TextFormField(
+                                        controller: namecontroller,
+                                        keyboardType: TextInputType.text,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return 'required';
+                                          } else
+                                            return null;
+                                        },
+                                        decoration: InputDecoration(
+                                          prefixIcon: Icon(Icons.person),
+                                          hintText: 'Username',
+                                          labelText: 'Username',
+                                          filled: true,
+                                          contentPadding:
+                                              const EdgeInsets.fromLTRB(
+                                                  20.0, 10.0, 20.0, 10.0),
+                                          fillColor: Colors.white,
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      TextFormField(
+                                        controller: emailcontroller,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return 'required';
+                                          } else
+                                            return null;
+                                        },
+                                        decoration: InputDecoration(
+                                          prefixIcon: Icon(Icons.email),
+                                          hintText: 'Emai',
+                                          labelText: 'Email',
+                                          filled: true,
+                                          contentPadding:
+                                              const EdgeInsets.fromLTRB(
+                                                  20.0, 10.0, 20.0, 10.0),
+                                          fillColor: Colors.white,
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      TextFormField(
+                                        controller: passwordcontroller,
+                                        keyboardType: TextInputType.text,
+                                        obscureText: true,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return 'required';
+                                          } else
+                                            return null;
+                                        },
+                                        decoration: InputDecoration(
+                                          prefixIcon: Icon(Icons.lock),
+                                          hintText: 'Password',
+                                          labelText: 'Password',
+                                          filled: true,
+                                          contentPadding:
+                                              const EdgeInsets.fromLTRB(
+                                                  20.0, 10.0, 20.0, 10.0),
+                                          fillColor: Colors.white,
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      TextFormField(
+                                        controller: contactcontroller,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return 'required';
+                                          } else
+                                            return null;
+                                        },
+                                        decoration: InputDecoration(
+                                          prefixIcon: Icon(Icons.phone),
+                                          hintText: 'Contact',
+                                          labelText: 'Contact',
+                                          filled: true,
+                                          contentPadding:
+                                              const EdgeInsets.fromLTRB(
+                                                  20.0, 10.0, 20.0, 10.0),
+                                          fillColor: Colors.white,
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 10, horizontal: 20),
+                                        child: InkWell(
+                                            onTap: () async {
+                                              await signUp(
+                                                  emailcontroller.text
+                                                      .toString(),
+                                                  passwordcontroller.text
+                                                      .toString());
+                                            },
+                                            child: Container(
+                                                height: 40,
+                                                width: 250,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    border: Border.all(),
+                                                    color: Color.fromARGB(
+                                                        255, 143, 239, 148)),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 10,
+                                                      horizontal: 30),
+                                                  child: Center(
+                                                      child: Text("Register")),
+                                                ))),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                          "By clicking the Register account button above you agree on our"),
+                                      InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const TermsofService()));
+                                          },
+                                          child: Align(
+                                            alignment: Alignment.topLeft,
+                                            child: Text(
+                                              "Terms of Service.",
+                                              style: TextStyle(
+                                                  color: Colors.lightGreen),
+                                            ),
+                                          ))
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ]),
+                          ),
+                        ))
+                  ]),
             ),
-          ))
-    ]));
+          )
+        ]));
   }
 
   Future<void> signUp(String email, String password) async {

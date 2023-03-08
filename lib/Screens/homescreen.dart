@@ -4,6 +4,7 @@ import 'package:contacts/Screens/drawer.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:contacts/Utils/contacts_utils.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -73,14 +74,20 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Column(
           children: [
+            Spacer(),
             Text(
-              "Enable App Permission to upload contacts",
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              "Enable App Permission to Upload Contacts",
+              style: Theme.of(context).textTheme.headline6,
               textAlign: TextAlign.center,
             ),
+            Spacer(),
+            Container(
+              height: 350,
+              child: Image.asset('assets/contacts.png'),
+            ),
+            Spacer(),
             SizedBox(
-              height: 40,
+              height: 36,
             ),
             InkWell(
                 onTap: () {
@@ -88,37 +95,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 child: Container(
                     height: 40,
-                    width: 140,
+                    width: 240,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                         color: Colors.blue),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Upload Contacts",
-                        style: TextStyle(color: Colors.white),
+                      child: Center(
+                        child: Text(
+                          "Upload Contacts",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ))),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
-            InkWell(
-                onTap: () {
-                  goToHomePage();
-                },
-                child: Container(
-                    height: 40,
-                    width: 140,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.blue),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Continue",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ))),
+            // InkWell(
+            //     onTap: () {
+            //       goToHomePage();
+            //     },
+            //     child: Container(
+            //         height: 40,
+            //         width: 140,
+            //         decoration: BoxDecoration(
+            //             borderRadius: BorderRadius.circular(20),
+            //             color: Colors.blue),
+            //         child: Padding(
+            //           padding: const EdgeInsets.all(8.0),
+            //           child: Text(
+            //             "Continue",
+            //             style: TextStyle(color: Colors.white),
+            //           ),
+            //         ))),
           ],
         ),
       ),

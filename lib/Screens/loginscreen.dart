@@ -40,17 +40,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
                   child: Container(
-                    height: 440.0,
+                    height: 445.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
                       color: Colors.white,
                     ),
                     width: double.infinity,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
+                      padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
                       child: Column(children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          padding: const EdgeInsets.symmetric(vertical: 5),
                           child: SvgPicture.asset(
                             'assets/logo-keep.svg',
                             height: 50,
