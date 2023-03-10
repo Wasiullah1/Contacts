@@ -48,7 +48,8 @@ dependencies:
   contacts_service: ^0.6.3
   permission_handler: ^10.2.0
   google_sign_in:
-  provider:
+  image_picker: ^0.8.5+3
+  badges: ^2.0.3
 
 dev_dependencies:
   flutter_test:

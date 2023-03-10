@@ -1,6 +1,7 @@
 import 'package:contacts/Models/currentappuser.dart';
 import 'package:contacts/Screens/contactsscreen.dart';
 import 'package:contacts/Screens/loginscreen.dart';
+import 'package:contacts/Screens/settings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -84,7 +85,12 @@ class _MyDrawerState extends State<MyDrawer> {
                 },
                 child: _buildRow(Icons.contacts, "Contacts")),
             SizedBox(height: 20.0),
-            InkWell(onTap: () {}, child: _buildRow(Icons.settings, "Setting")),
+            InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Settings()));
+                },
+                child: _buildRow(Icons.settings, "Setting")),
             SizedBox(height: 20.0),
             InkWell(
                 onTap: () async {

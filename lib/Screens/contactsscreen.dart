@@ -17,8 +17,10 @@ class _ContactsScreenState extends State<ContactsScreen> {
   @override
   Widget build(BuildContext context) {
     List myContacts = [];
+    List myContactsnum = [];
     final uid = CurrentAppUser.currentUserData.uid;
     return Scaffold(
+      appBar: AppBar(title: Text("Contacts Screen")),
       backgroundColor: Colors.blue.shade100,
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
@@ -64,7 +66,13 @@ class _ContactsScreenState extends State<ContactsScreen> {
                 itemBuilder: (context, index) {
                   return Card(
                     child: ListTile(
+                      leading: CircleAvatar(
+                          backgroundColor: Colors.blueGrey.shade300),
                       title: Text("${myContacts[index]["displayName"]}"),
+                      subtitle:
+                          Text("${myContacts[index]["phones"][0]['value']}"),
+                      //Text("${myContacts[index]["phones"][1]['value']}"),
+
                       trailing: IconButton(
                         onPressed: () {
                           // FirestoreApi.deleteContact(
