@@ -15,6 +15,8 @@ class _MyDrawerState extends State<MyDrawer> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   String? name;
   String? email;
+
+  // final user = FirebaseAuth.instance.currentUser!;
   @override
   void initState() {
     super.initState();
@@ -31,8 +33,7 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   _buildDrawer() {
-    final String image = CurrentAppUser.currentUserData.image ??
-        "https://firebasestorage.googleapis.com/v0/b/contacts-1f2c7.appspot.com/o/images%2Fdefault.png?alt=media&token=0b0b0b0b-0b0b-0b0b-0b0b-0b0b0b0b0b0b";
+    final String image = CurrentAppUser.currentUserData.image ?? "";
     return Container(
       padding: const EdgeInsets.only(left: 16.0, right: 40),
       decoration: BoxDecoration(
@@ -52,12 +53,12 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
               child: CircleAvatar(
                 radius: 40,
-                backgroundImage: NetworkImage(image),
+                backgroundImage: NetworkImage("$image"),
               ),
             ),
             SizedBox(height: 10),
             Text(
-              " $name",
+              "$name",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,

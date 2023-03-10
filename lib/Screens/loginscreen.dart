@@ -3,10 +3,13 @@ import 'package:contacts/Screens/forgotpassword.dart';
 import 'package:contacts/Screens/homescreen.dart';
 import 'package:contacts/Screens/loginscreenview.dart';
 import 'package:contacts/Screens/signupscreen.dart';
+import 'package:contacts/Utils/auth_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,6 +19,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
   final _formKey = GlobalKey<FormState>();
   String username = "", email = "", password = "", contact = "";
   bool load = false;
@@ -86,7 +90,24 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.symmetric(
                               vertical: 15, horizontal: 30),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () async {
+                              // final provider =
+                              //     Provider.of<GoogleSignInProvider>(context,
+                              //         listen: false);
+                              // provider.googleLogin();
+                              bool result =
+                                  await AuthService().signInWithGoogle();
+                              if (result) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeScreen()));
+                              }
+                              // _googleSignIn.signIn().then((value) {
+                              //   String userName = value!.displayName!;
+                              //   String profilePicture = value.photoUrl!;
+                              // });
+                            },
                             child: Container(
                                 height: 40,
                                 decoration: BoxDecoration(
