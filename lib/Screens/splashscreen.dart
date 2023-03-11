@@ -5,6 +5,7 @@ import 'package:contacts/Screens/homescreen.dart';
 import 'package:contacts/Screens/loginscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -51,12 +52,13 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.blue.shade100,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 60),
-            child: Image.asset("assets/.png"),
-          )
+          Center(
+            child: SvgPicture.asset(
+              'assets/logo-keep.svg',
+            ),
+          ),
         ],
       ),
     );

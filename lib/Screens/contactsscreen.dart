@@ -2,9 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 //import 'package:contacts/API/firestore_api.dart';
 import 'package:contacts/Models/currentappuser.dart';
-import 'package:contacts/Utils/auth_services.dart';
+//import 'package:contacts/Utils/auth_services.dart';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactsScreen extends StatefulWidget {
   const ContactsScreen({super.key});
@@ -14,6 +15,11 @@ class ContactsScreen extends StatefulWidget {
 }
 
 class _ContactsScreenState extends State<ContactsScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     List myContacts = [];
@@ -71,47 +77,24 @@ class _ContactsScreenState extends State<ContactsScreen> {
                       title: Text("${myContacts[index]["displayName"]}"),
                       subtitle:
                           Text("${myContacts[index]["phones"][0]['value']}"),
-                      //Text("${myContacts[index]["phones"][1]['value']}"),
-
                       trailing: IconButton(
-                        onPressed: () {
-                          // FirestoreApi.deleteContact(
-                          //     contacts['contactName']);
+                        onPressed: () async {
+                          final Uri url = Uri(
+                              scheme: 'tel',
+                              path:
+                                  "${myContacts[index]["phones"][0]['value']}");
+                          if (await canLaunchUrl(url)) {
+                            await launchUrl(url);
+                          } else {
+                            print("Can't launch this URL");
+                          }
                         },
-                        icon: const Icon(Icons.delete),
+                        icon: const Icon(Icons.phone),
                       ),
                     ),
                   );
                 },
               );
-              // return Stack(children: [
-              //   Positioned(
-              //       top: 30,
-              //       left: 10,
-              //       child: IconButton(
-              //         onPressed: () => Navigator.push(
-              //             context,
-              //             MaterialPageRoute(
-              //                 builder: (context) => HomeScreen())),
-              //         icon: const Icon(
-              //           Icons.arrow_back_ios,
-              //           color: Colors.white,
-              //         ),
-              //       )),
-              //   SingleChildScrollView(
-              //       child: Padding(
-              //     padding: const EdgeInsets.symmetric(
-              //         horizontal: 20, vertical: 20),
-              //     child: Column(
-              //         // mainAxisAlignment: MainAxisAlignment.center,
-              //         // crossAxisAlignment: CrossAxisAlignment.center,
-              //         children: [
-              //           SingleChildScrollView(
-              //             child:
-              //           )
-              //         ]),
-              //   ))
-              // ]);
             }
           }
         },

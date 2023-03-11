@@ -4,6 +4,7 @@ import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:contacts/Models/currentappuser.dart';
 import 'package:contacts/Screens/homescreen.dart';
+import 'package:contacts/Screens/loginscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _SettingsState extends State<Settings> {
   bool showSpinner = false;
   final ref = FirebaseStorage.instance.ref('images');
   bool isUploading = false;
-
+  bool _switchValue = false;
   void uploadImage() {
     setState(() {
       isUploading = true;
@@ -200,16 +201,89 @@ class _SettingsState extends State<Settings> {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Text(
                     "$email",
                     style: TextStyle(
-                      fontSize: 30.0,
+                      fontSize: 23.0,
                       fontFamily: 'Pacifico',
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  _buildDivider(),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Turn On Sync Automatically",
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Switch(
+                            value: _switchValue,
+                            onChanged: (value) {
+                              setState(() {
+                                _switchValue = value;
+                                if (_switchValue) {
+                                  // Perform action when switch is turned on
+                                  print('Switch is turned on');
+                                } else {
+                                  // Perform action when switch is turned off
+                                  print('Switch is turned off');
+                                }
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      await logout(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Logoun",
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 20,
+                              ),
+                            ),
+                            Icon(Icons.logout),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+
                   // Text(
                   //   "$email".toUpperCase(),
                   //   style: TextStyle(
@@ -225,5 +299,17 @@ class _SettingsState extends State<Settings> {
             ),
           ]),
         ));
+  }
+
+  Divider _buildDivider() {
+    return Divider(
+      color: Colors.blueGrey.shade300,
+    );
+  }
+
+  Future<void> logout(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 }
