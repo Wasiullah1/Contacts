@@ -1,5 +1,6 @@
 import 'package:contacts/Models/currentappuser.dart';
 import 'package:contacts/Screens/forgotpassword.dart';
+import 'package:contacts/Screens/home.dart';
 import 'package:contacts/Screens/homescreen.dart';
 import 'package:contacts/Screens/loginscreenview.dart';
 import 'package:contacts/Screens/signupscreen.dart';
@@ -8,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-//import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -37,13 +37,22 @@ class _LoginScreenState extends State<LoginScreen> {
           return true;
         },
         child: SafeArea(
-          child: Scaffold(
-            body: SingleChildScrollView(
+            child: Scaffold(
+          backgroundColor: Colors.lightBlue.shade100,
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30),
               child: Column(
-                children: [
-                  Stack(children: [
-                    Image.asset(
-                      'assets/backgroun.png',
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Image.asset(
+                    //   'assets/backgroun.png',
+                    // ),
+                    Text(
+                      "Login",
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                     ),
                     Padding(
                         padding: const EdgeInsets.symmetric(
@@ -52,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 420.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15.0),
+                            border: Border.all(color: Colors.blueAccent),
                             color: Colors.white,
                           ),
                           width: double.infinity,
@@ -59,25 +69,25 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding:
                                 const EdgeInsets.only(top: 20.0, bottom: 15.0),
                             child: Column(children: <Widget>[
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 5),
-                                child: SvgPicture.asset(
-                                  'assets/logo-keep.svg',
-                                  height: 50,
-                                  width: 50,
-                                ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "Keep Contacts is the best way to manage, sync and backup your phone´s address book - it works on basically any device imaginable.",
-                                    style: TextStyle(fontSize: 12),
-                                  ),
-                                ),
-                              ),
+                              // Padding(
+                              //   padding:
+                              //       const EdgeInsets.symmetric(vertical: 5),
+                              //   child: SvgPicture.asset(
+                              //     'assets/logo-keep.svg',
+                              //     height: 50,
+                              //     width: 50,
+                              //   ),
+                              // ),
+                              // const Padding(
+                              //   padding: EdgeInsets.symmetric(horizontal: 10),
+                              //   child: Align(
+                              //     alignment: Alignment.center,
+                              //     child: Text(
+                              //       "Keep Contacts is the best way to manage, sync and backup your phone´s address book - it works on basically any device imaginable.",
+                              //       style: TextStyle(fontSize: 12),
+                              //     ),
+                              //   ),
+                              // ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 5, horizontal: 10),
@@ -251,17 +261,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ))
                   ]),
-                  const Description1(),
-                  const Description2(),
-                  const Description3(),
-                  const Description4(),
-                  const Footer(),
-                  //
-                ],
-              ),
+
+              // const Description1(),
+              // const Description2(),
+              // const Description3(),
+              // const Description4(),
+              // const Footer(),
+              //
             ),
           ),
-        ));
+        )));
   }
 
   Divider _buildDivider() {

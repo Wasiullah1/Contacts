@@ -43,14 +43,10 @@ dependencies:
   cloud_firestore:
   fluttertoast:
   firebase_database:
-  timezone:
-  flutter_native_timezone:
   contacts_service: ^0.6.3
   permission_handler: ^10.2.0
-  google_sign_in:
   image_picker: ^0.8.5+3
   badges: ^2.0.3
-  fast_contacts:
   url_launcher:
 
 dev_dependencies:

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:contacts/Models/currentappuser.dart';
+import 'package:contacts/Screens/home.dart';
 import 'package:contacts/Screens/homescreen.dart';
 import 'package:contacts/Screens/loginscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -35,19 +36,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // return StreamBuilder(
-    //     stream: FirebaseAuth.instance.authStateChanges(),
-    //     builder: (context, snapshot) {
-    //       if (snapshot.connectionState == ConnectionState.waiting) {
-    //         return Center(child: CircularProgressIndicator());
-    //       } else if (snapshot.hasData) {
-    //         return HomeScreen();
-    //       } else if (snapshot.hasError) {
-    //         return Center(child: Text('Something went Wrong!'));
-    //       } else {
-    //         return LoginScreen();
-    //       }
-    //     });
     return Scaffold(
       backgroundColor: Colors.blue.shade100,
       body: Column(
@@ -55,10 +43,10 @@ class _SplashScreenState extends State<SplashScreen> {
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(
-            child: SvgPicture.asset(
-              'assets/logo-keep.svg',
-            ),
-          ),
+              // child: SvgPicture.asset(
+              //   'assets/logo-keep.svg',
+              // ),
+              ),
         ],
       ),
     );

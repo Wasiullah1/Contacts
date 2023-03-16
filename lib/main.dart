@@ -1,6 +1,4 @@
-import 'package:contacts/Screens/loginscreen.dart';
 import 'package:contacts/Screens/splashscreen.dart';
-import 'package:contacts/Utils/auth_services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

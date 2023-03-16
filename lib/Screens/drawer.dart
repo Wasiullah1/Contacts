@@ -1,5 +1,6 @@
 import 'package:contacts/Models/currentappuser.dart';
-import 'package:contacts/Screens/contactsscreen.dart';
+import 'package:contacts/Screens/addcontact.dart';
+import 'package:contacts/Screens/contactScreen.dart';
 import 'package:contacts/Screens/loginscreen.dart';
 import 'package:contacts/Screens/settings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,8 +17,8 @@ class _MyDrawerState extends State<MyDrawer> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   String? name;
   String? email;
+  String uid = FirebaseAuth.instance.currentUser!.uid;
 
-  // final user = FirebaseAuth.instance.currentUser!;
   @override
   void initState() {
     super.initState();
@@ -88,7 +89,14 @@ class _MyDrawerState extends State<MyDrawer> {
             InkWell(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Settings()));
+                      MaterialPageRoute(builder: (context) => AddContacts()));
+                },
+                child: _buildRow(Icons.contacts, "Add Contacts")),
+            SizedBox(height: 20.0),
+            InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SettingsPage()));
                 },
                 child: _buildRow(Icons.settings, "Setting")),
             SizedBox(height: 20.0),

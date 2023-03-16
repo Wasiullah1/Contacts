@@ -7,9 +7,10 @@ class FirestoreApi {
     final uid = CurrentAppUser.currentUserData.uid;
     final contactsJSON = contacts.map((contacts) => contacts.toMap()).toList();
 
-    final refUser = FirebaseFirestore.instance.collection('contacts')
-    .doc(uid)
-    .collection('contactlist');
+    final refUser = FirebaseFirestore.instance
+        .collection('contacts')
+        .doc(uid)
+        .collection('contactlist');
 
     await refUser.add({
       'username': 'wasi',
