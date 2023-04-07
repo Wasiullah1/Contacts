@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "770360443471",
-    "project_id": "synccontacts-ca676",
-    "storage_bucket": "synccontacts-ca676.appspot.com"
+    "project_number": "866294096284",
+    "project_id": "synccontacts-a30d0",
+    "storage_bucket": "synccontacts-a30d0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:770360443471:android:69e010066c522e8baba03a",
+        "mobilesdk_app_id": "1:866294096284:android:c81ff51b5c9caaecf9e859",
         "android_client_info": {
-          "package_name": "com.sync.contacts"
+          "package_name": "com.synccontacts.contacts"
         }
       },
       "oauth_client": [
         {
-          "client_id": "770360443471-6l1tvlad1fbcg5s7654r6v5pm753n3e2.apps.googleusercontent.com",
+          "client_id": "866294096284-4kd6uu47je67pn5inuhgra8l9keu2e5d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCs4Joxb5f1J4SyjVPRPBYFs7uOO4aWGyc"
+          "current_key": "AIzaSyBtPP5nAoKNqffwHiu7mHIUcyHEGXwD-QA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "770360443471-6l1tvlad1fbcg5s7654r6v5pm753n3e2.apps.googleusercontent.com",
+              "client_id": "866294096284-4kd6uu47je67pn5inuhgra8l9keu2e5d.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
